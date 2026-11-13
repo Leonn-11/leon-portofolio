@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leon Juni Anwardeny — Portofolio</title>
+<meta name="description" content="Portofolio Leon Juni Anwardeny, mahasiswa Sistem Informasi UMN: analisis sistem, database, web, dan data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#151a21; --bg-2:#1b2129; --card:#1f262f; --card-2:#252d38; --line:#2e3744; --ink:#e7eaf0; --muted:#9aa4b3; --dim:#6f7a8a;
+  --accent:#6fa8bd; --accent-strong:#8cc0d2; --accent-soft:rgba(111,168,189,.13); --gold:#cfae72; --gold-soft:rgba(207,174,114,.12);
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --display:'Space Grotesk',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;opacity:.22;mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,#000 30%,transparent 75%)}
+body>*:not(nav):not(.modal):not(.lb){position:relative;z-index:1}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+::selection{background:var(--accent);color:#0d1116}
+
+nav{position:sticky;top:0;z-index:20;background:rgba(21,26,33,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-family:var(--mono);font-weight:500;font-size:.95rem;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--accent)}
+nav ul{display:flex;gap:28px;list-style:none;font-size:.88rem}
+nav ul a{text-decoration:none;color:var(--muted);transition:color .2s}
+nav ul a:hover{color:var(--accent-strong)}
+
+.hero{padding:100px 0 80px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.03em;margin-bottom:22px;display:inline-flex;align-items:center;gap:10px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg-2)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:#6fcf97;box-shadow:0 0 0 3px rgba(111,207,151,.18);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(111,207,151,.05)}}
+h1{font-family:var(--display);font-size:clamp(2.5rem,6.2vw,4.6rem);line-height:1.02;letter-spacing:-.035em;font-weight:700;max-width:15ch}
+h1 em{font-style:normal;color:var(--accent-strong)}
+.lede{margin-top:26px;font-size:1.1rem;color:var(--muted);max-width:60ch}
+.lede strong{color:var(--ink)}
+.cta{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.94rem;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--card);transition:transform .15s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#0f151b}
+.stats{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:rgba(31,38,47,.6)}
+.stat b{display:block;font-family:var(--display);font-size:1.55rem;letter-spacing:-.02em;line-height:1.2}
+.stat span{font-family:var(--mono);font-size:.72rem;color:var(--dim)}
+
+section{padding:88px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:40px}
+.sec-head .num{font-family:var(--mono);font-size:.8rem;color:var(--accent)}
+.sec-head .num::before{content:"// "}
+h2{font-family:var(--display);font-size:clamp(1.7rem,3.4vw,2.4rem);letter-spacing:-.03em;line-height:1.1}
+
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:56px}
+.about p{color:#c3c9d3;margin-bottom:14px}
+.about p strong{color:var(--accent-strong);font-weight:600}
+.skills .group{margin-bottom:22px}
+.skills h3{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.83rem;padding:5px 12px;border:1px solid var(--line);background:var(--card);border-radius:8px;color:#c9cfd8}
+.chip.hl{border-color:rgba(111,168,189,.45);color:var(--accent-strong);background:var(--accent-soft)}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:-14px 0 30px}
+.filters button{font:500 .84rem var(--body);padding:8px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;transition:all .2s}
+.filters button:hover{color:var(--ink)}
+.filters button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-strong)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s;outline:none}
+.card:hover,.card:focus-visible{transform:translateY(-4px);border-color:rgba(111,168,189,.6);box-shadow:0 18px 40px -18px rgba(0,0,0,.6)}
+.card.hide{display:none}
+.card:first-child{grid-column:span 2}
+.card:first-child .thumb{aspect-ratio:16/8}
+.thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg-2);border-bottom:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .5s;filter:saturate(.9)}
+.card:hover .thumb img{transform:scale(1.04)}
+.thumb .ph{width:100%;height:100%;display:grid;place-items:center;background:
+  radial-gradient(circle at 30% 30%,rgba(111,168,189,.18),transparent 60%),
+  repeating-linear-gradient(45deg,transparent 0 14px,rgba(255,255,255,.025) 14px 15px),var(--bg-2)}
+.thumb .ph span{font-size:3rem;filter:grayscale(.2)}
+.feat{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:.7rem;background:var(--gold);color:#221a0a;padding:3px 10px;border-radius:6px;font-weight:500}
+.c-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.c-cat{font-family:var(--mono);font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.c-body h3{font-family:var(--display);font-size:1.2rem;letter-spacing:-.015em;line-height:1.25;margin:6px 0 8px}
+.card:first-child .c-body h3{font-size:1.5rem}
+.c-body p{font-size:.9rem;color:var(--muted)}
+.c-body .stack{margin-top:14px}
+.more{margin-top:auto;padding-top:16px;font-family:var(--mono);font-size:.76rem;color:var(--accent-strong)}
+.stack{display:flex;flex-wrap:wrap;gap:6px}
+.stack span{font-family:var(--mono);font-size:.7rem;padding:3px 8px;background:var(--bg-2);border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+
+.ext{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 16px;border-radius:10px;background:var(--accent);color:#0f151b;font-weight:600;font-size:.9rem;text-decoration:none;transition:transform .15s}
+.ext:hover{transform:translateY(-2px)}
+
+.courses-meta{display:flex;flex-wrap:wrap;gap:10px;margin:-14px 0 30px;font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.courses-meta span{padding:5px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.courses-meta b{color:var(--accent-strong);font-weight:500}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cgroup{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.cgroup h3{font-family:var(--display);font-size:1.02rem;margin-bottom:4px}
+.cgroup .cnt{font-family:var(--mono);font-size:.7rem;color:var(--dim);margin-bottom:12px;display:block}
+.cgroup ul{list-style:none}
+.cgroup li{font-size:.88rem;color:#c3c9d3;padding:6px 0;border-top:1px dashed var(--line);display:flex;justify-content:space-between;gap:10px}
+.cgroup li:first-child{border-top:none}
+.cgroup li i{font-style:normal;font-family:var(--mono);font-size:.68rem;color:var(--dim);white-space:nowrap}
+.cgroup li i.now{color:var(--gold)}
+@media (max-width:900px){.cgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.cgrid{grid-template-columns:1fr}}
+/* modal */
+.modal{position:fixed;inset:0;z-index:40;background:rgba(8,10,14,.72);backdrop-filter:blur(6px);display:none;overflow-y:auto;padding:48px 20px}
+.modal.open{display:block}
+.m-box{max-width:920px;margin:0 auto;background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:40px;position:relative;animation:rise .25s ease}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+.m-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1.1rem;cursor:pointer}
+.m-close:hover{border-color:var(--accent)}
+.p-top{margin-bottom:6px}
+.p-meta{font-family:var(--mono);font-size:.76rem;color:var(--dim)}
+.m-box h3{font-family:var(--display);font-size:1.8rem;letter-spacing:-.025em;line-height:1.15;margin:8px 0 12px;max-width:28ch}
+.summary{color:#c3c9d3;max-width:70ch}
+.p-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:26px}
+.p-block h4{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.p-block ul{list-style:none}
+.p-block li{position:relative;padding-left:18px;margin-bottom:8px;font-size:.93rem;color:#c3c9d3}
+.p-block li::before{content:"›";position:absolute;left:2px;top:0;color:var(--accent)}
+.role{margin-top:26px;padding:16px 18px;border:1px solid rgba(207,174,114,.3);background:var(--gold-soft);border-radius:12px;font-size:.93rem;color:#ddd5c4}
+.role b{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px;color:var(--gold)}
+.m-box .stack{margin-top:18px}
+.series{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.series .step{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--card)}
+.series .n{font-family:var(--mono);font-size:.68rem;color:var(--accent)}
+.series h5{font-family:var(--display);font-size:1.02rem;margin:4px 0 6px}
+.series p{font-size:.86rem;color:var(--muted)}
+.series .r{margin-top:10px;font-size:.83rem;padding-top:10px;border-top:1px dashed var(--line);color:#ddd5c4}
+.series .r b{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);display:block}
+.gallery{display:grid;grid-template-columns:2fr 1fr;grid-auto-rows:160px;gap:10px;margin-top:26px}
+.gallery figure{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--line);cursor:zoom-in;background:#fff}
+.gallery figure:first-child{grid-row:span 2}
+.gallery img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.gallery figcaption{position:absolute;left:8px;bottom:8px;font-family:var(--mono);font-size:.68rem;background:rgba(15,19,25,.88);color:#e7eaf0;padding:3px 8px;border-radius:6px}
+
+.timeline{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.timeline h3{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px}
+.item{padding:0 0 24px 22px;border-left:1px solid var(--line);position:relative}
+.item::before{content:"";position:absolute;left:-5px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.item h4{font-family:var(--display);font-size:1.05rem;font-weight:600}
+.item .when{font-family:var(--mono);font-size:.72rem;color:var(--dim)}
+.item p{font-size:.92rem;color:var(--muted);margin-top:4px}
+
+.contact{border-bottom:none;background:linear-gradient(180deg,transparent,rgba(111,168,189,.06))}
+.contact .eyebrow::before{background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);animation:none}
+.contact h2{font-size:clamp(2rem,5vw,3.4rem)}
+.contact p{color:var(--muted);margin-top:14px;max-width:56ch}
+.links{margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:660px}
+.links a,.links div{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;transition:border-color .2s}
+.links a:hover{border-color:var(--accent)}
+.links small{font-family:var(--mono);font-size:.7rem;color:var(--dim);display:block;margin-bottom:2px}
+.links span{word-break:break-all}
+.copy{margin-top:8px;font-family:var(--mono);font-size:.7rem;background:var(--bg-2);border:1px solid var(--line);color:var(--muted);padding:4px 10px;border-radius:6px;cursor:pointer}
+.copy:hover{color:var(--accent-strong)}
+footer{color:var(--dim);font-family:var(--mono);font-size:.74rem;padding:28px 0;border-top:1px solid var(--line)}
+
+.lb{position:fixed;inset:0;background:rgba(6,8,11,.94);display:none;align-items:center;justify-content:center;z-index:60;padding:24px;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-height:86vh;border-radius:8px}
+.lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#ccd;font-family:var(--mono);font-size:.78rem}
+
+
+.hero-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:56px;align-items:center}
+.portrait{position:relative;justify-self:end;width:100%;max-width:360px}
+.portrait .frame{border-radius:20px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;background:var(--card)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.portrait::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid rgba(111,168,189,.45);border-radius:20px;z-index:-1}
+.portrait .tag{position:absolute;left:-14px;bottom:-16px;font-family:var(--mono);font-size:.72rem;background:var(--bg-2);border:1px solid var(--line);padding:7px 12px;border-radius:10px;color:var(--muted)}
+.portrait .tag b{color:var(--accent-strong);font-weight:500}
+.offclass{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.offclass figure{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+.offclass img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.offclass figcaption{position:absolute;left:8px;bottom:8px;font-family:var(--mono);font-size:.68rem;background:rgba(15,19,25,.85);padding:3px 8px;border-radius:6px}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}.portrait{justify-self:start;max-width:260px}}
+
+@media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){
+  nav ul{display:none}
+  .hero{padding:64px 0 56px}
+  .stats{grid-template-columns:1fr 1fr}
+  .about,.p-grid,.timeline,.links,.series,.grid{grid-template-columns:1fr}
+  .card:first-child{grid-column:auto}
+  .card:first-child .thumb{aspect-ratio:16/10}
+  .m-box{padding:26px 20px}
+  .gallery{grid-template-columns:1fr;grid-auto-rows:190px}
+  .gallery figure:first-child{grid-row:auto}
+  section{padding:64px 0}
+  .modal{padding:16px 10px}
+}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a href="#top" class="logo">~/leon<span>_</span>anwardeny</a>
+  <ul><li><a href="#tentang">Tentang</a></li><li><a href="#project">Project</a></li><li><a href="#matkul">Mata kuliah</a></li><li><a href="#pengalaman">Pengalaman</a></li><li><a href="#kontak">Kontak</a></li></ul>
+</div></nav>
+<header class="hero" id="top"><div class="wrap">
+  <div class="hero-grid"><div><div class="eyebrow">Terbuka untuk magang · Sistem Informasi</div>
+  <h1>Dari kebutuhan bisnis ke <em>sistem</em> dan data.</h1>
+  <p class="lede">Halo, saya <strong>Leon Juni Anwardeny</strong>, mahasiswa Sistem Informasi semester 5 di Universitas Multimedia Nusantara. Saya terbiasa menganalisis kebutuhan sistem, merancang database, ikut membangun aplikasi dan website, sampai mengolah data menjadi dashboard.</p>
+  <div class="cta">
+    <a class="btn primary" href="#project">Lihat project →</a>
+    <a class="btn" href="#kontak">Hubungi saya</a>
+  </div>
+  </div>
+  <div class="portrait"><div class="frame"><img src="leon.jpg" alt="Foto profil Leon Juni Anwardeny"></div><div class="tag">📍 Tangerang · <b>SI UMN '24</b></div></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>3,48</b><span>IPK / 4,00</span></div>
+    <div class="stat"><b>38</b><span>mata kuliah · 7 project</span></div>
+    <div class="stat"><b>Analisis · Web · Data</b><span>area yang saya kerjakan</span></div>
+    <div class="stat"><b>2+ tahun</b><span>kerja part-time di F&amp;B</span></div>
+  </div>
+</div></header>
+
+<section id="tentang"><div class="wrap">
+  <div class="sec-head"><span class="num">01</span><h2>Tentang saya</h2></div>
+  <div class="about">
+    <div>
+      <p>Di perkuliahan saya mengerjakan banyak jenis project: analisis dan perancangan sistem, database, aplikasi desktop, website, model bisnis digital, sampai analisis data dan machine learning. Hampir semuanya kerja kelompok, jadi saya terbiasa membagi peran, berkoordinasi, dan mengisi bagian yang dibutuhkan tim.</p>
+      <p>Di luar kampus, saya bekerja part-time di F&amp;B sebagai crew outlet dan waiter. Saya menangani transaksi kasir, mengecek stok bahan setiap hari, dan tetap teliti saat jam ramai. Pengalaman ini membantu saya memahami sistem kasir dan stok dari sisi orang yang benar-benar memakainya.</p>
+      <p>Saya sedang mencari kesempatan magang di bidang <strong>analisis sistem</strong>, <strong>data</strong>, <strong>implementasi sistem / ERP</strong>, atau <strong>pengembangan web</strong>.</p>
+      <div class="offclass">
+        <figure><img src="leon-futsal.jpg" alt="Leon bermain futsal" loading="lazy"><figcaption>Futsal</figcaption></figure>
+        <figure><img src="leon-padel.jpg" alt="Leon bermain padel" loading="lazy"><figcaption>Padel</figcaption></figure>
+        <figure><img src="leon-run.jpg" alt="Leon di acara fun run" loading="lazy"><figcaption>Fun run</figcaption></figure>
+      </div>
+    </div>
+    <div class="skills">
+      <div class="group"><h3>Analisis &amp; desain sistem</h3><div class="chips">
+        <span class="chip hl">Analisis kebutuhan</span><span class="chip hl">Use case &amp; activity diagram</span><span class="chip">Flowchart</span><span class="chip">ERD &amp; normalisasi</span><span class="chip">Wireframe</span><span class="chip">Figma</span><span class="chip">Konsep ERP</span>
+      </div></div>
+      <div class="group"><h3>Pengembangan</h3><div class="chips">
+        <span class="chip hl">SQL / MySQL</span><span class="chip">PHP &amp; Laravel</span><span class="chip">HTML / CSS / JS</span><span class="chip">C# (WinForms)</span><span class="chip">Java (OOP)</span><span class="chip">Python</span>
+      </div></div>
+      <div class="group"><h3>Data</h3><div class="chips">
+        <span class="chip hl">Excel &amp; Google Sheets</span><span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">pandas &amp; scikit-learn</span>
+      </div></div>
+      <div class="group"><h3>Bahasa</h3><div class="chips">
+        <span class="chip">Indonesia (native)</span><span class="chip">Inggris (menengah)</span>
+      </div></div>
+      <div class="group"><h3>Di luar kelas</h3><div class="chips">
+        <span class="chip">⚽ Futsal</span><span class="chip">🎾 Padel</span><span class="chip">🎱 Billiard</span><span class="chip">🏀 Basket</span>
+      </div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="project"><div class="wrap">
+  <div class="sec-head"><span class="num">02</span><h2>Project</h2></div>
+  <div class="filters">
+    <button class="on" data-f="all">Semua</button>
+    <button data-f="sistem">Sistem &amp; Web</button>
+    <button data-f="data">Data</button>
+    <button data-f="bisnis">Bisnis &amp; Desain</button>
+  </div>
+  <div class="grid">
+<article class="card" data-cat="sistem" tabindex="0" role="button" aria-label="Lihat detail Legacy Billiard: dari database sampai website reservasi">
+  <div class="thumb"><img src="lb-web-hero.jpg" alt="" loading="lazy"><span class="feat">★ Unggulan</span></div>
+  <div class="c-body"><span class="c-cat">Sistem & Web</span><h3>Legacy Billiard: dari database sampai website reservasi</h3><p>Database, aplikasi Java, dan website reservasi Laravel untuk satu kasus yang sama.</p><div class="stack"><span>MySQL</span><span>PHP · Laravel</span><span>Java</span><span>HTML / CSS / JS</span><span>ERD</span><span>Wireframe &amp; site diagram</span></div><span class="more">Lihat detail →</span></div>
+  <template>
+    <div class="p-top"><span class="p-meta">3 mata kuliah · Proyek kelompok · 2025</span></div>
+    <h3>Legacy Billiard: dari database sampai website reservasi</h3>
+    <p class="summary">Banyak tempat billiard masih mencatat booking, waktu bermain, dan pembayaran secara manual, sehingga antrean menumpuk di jam ramai. Kasus yang sama kami kembangkan di tiga mata kuliah berbeda, dari rancangan database, aplikasi Java, sampai website reservasi meja dan turnamen yang utuh.</p>
+    <div class="series">
+      <div class="step"><span class="n">01 · Database System</span><h5>Desain database</h5><p>Normalisasi dari nota manual, ERD/EERD, tabel MySQL, view dan advanced query.</p><div class="r"><b>Peran saya</b>Logika backend dan integrasi database untuk alur booking meja dan pembayaran.</div></div>
+      <div class="step"><span class="n">02 · OOP</span><h5>Aplikasi Java</h5><p>Booking meja, membership, pesan snack, dan pembayaran dengan class, inheritance, linked list, dan stack untuk riwayat pesanan.</p><div class="r"><b>Peran saya</b>Memegang kode program aplikasi (ditulis dengan bantuan AI) dan memahami alur sistemnya dari booking sampai pembayaran.</div></div>
+      <div class="step"><span class="n">03 · Web Design &amp; Development</span><h5>Website Laravel</h5><p>Website reservasi meja dan turnamen dengan panel admin: booking, meja, promo, galeri, dan pengaturan.</p><div class="r"><b>Peran saya</b>Membangun halaman Sign Up, Kelola Promo, dan Pengaturan.</div></div>
+    </div>
+    <div class="stack"><span>MySQL</span><span>PHP · Laravel</span><span>Java</span><span>HTML / CSS / JS</span><span>ERD</span><span>Wireframe &amp; site diagram</span></div>
+    <div class="gallery">
+      <figure><img src="lb-web-hero.jpg" alt="Halaman utama website Legacy Billiard" loading="lazy"><figcaption>Homepage website</figcaption></figure>
+      <figure><img src="lb-web-promo.jpg" alt="Halaman admin Kelola Promo" loading="lazy"><figcaption>Kelola Promo (bagian saya)</figcaption></figure>
+      <figure><img src="lb-web-settings.jpg" alt="Halaman admin Pengaturan sistem" loading="lazy"><figcaption>Pengaturan (bagian saya)</figcaption></figure>
+    </div>
+  </template>
+</article>
+<article class="card" data-cat="sistem bisnis" tabindex="0" role="button" aria-label="Lihat detail Sistem Point of Sale Ameng Coffee">
+  <div class="thumb"><img src="pos-kasir.jpg" alt="" loading="lazy"></div>
+  <div class="c-body"><span class="c-cat">Sistem & Bisnis</span><h3>Sistem Point of Sale Ameng Coffee</h3><p>Aplikasi kasir desktop: transaksi, inventori, dan laporan penjualan.</p><div class="stack"><span>C#</span><span>Windows Forms</span><span>SQL Server</span><span>UML</span><span>UI design</span></div><span class="more">Lihat detail →</span></div>
+  <template>
+    <div class="p-top"><span class="p-meta">Visual Programming · Proyek kelompok · 2026</span></div>
+    <h3>Sistem Point of Sale Ameng Coffee</h3>
+    <p class="summary">Aplikasi kasir desktop untuk kedai kopi yang menyatukan transaksi penjualan, inventori produk, dan laporan penjualan yang bisa diekspor ke PDF dan Excel.</p>
+    <div class="p-grid">
+      <div class="p-block"><h4>Fitur</h4><ul>
+        <li>Transaksi penjualan dengan keranjang dan total otomatis</li>
+        <li>Kelola produk: tambah, ubah, hapus, dan pantau stok</li>
+        <li>Laporan penjualan dengan ekspor PDF dan Excel</li>
+      </ul></div>
+      <div class="p-block"><h4>Proses</h4><ul>
+        <li>Analisis kebutuhan fungsional dan non-fungsional</li>
+        <li>Use case, activity diagram, dan flowchart</li>
+        <li>Implementasi C# dengan database SQL Server</li>
+      </ul></div>
+    </div>
+    <div class="role"><b>Peran saya · System Analyst &amp; UI/UX Designer</b>Menganalisis kebutuhan sistem, merancang alur sistem, membantu membuat flowchart, activity diagram, dan use case diagram, serta merancang tampilan antarmuka POS agar mudah dipakai kasir.</div>
+    <div class="stack"><span>C#</span><span>Windows Forms</span><span>SQL Server</span><span>UML</span><span>UI design</span></div>
+    <div class="gallery">
+      <figure><img src="pos-kasir.jpg" alt="Halaman transaksi kasir POS Ameng Coffee" loading="lazy"><figcaption>Halaman kasir</figcaption></figure>
+      <figure><img src="pos-usecase.jpg" alt="Use case diagram sistem POS" loading="lazy"><figcaption>Use case diagram</figcaption></figure>
+      <figure><img src="pos-inventori.jpg" alt="Halaman manajemen produk" loading="lazy"><figcaption>Manajemen produk</figcaption></figure>
+    </div>
+  </template>
+</article>
+<article class="card" data-cat="data" tabindex="0" role="button" aria-label="Lihat detail Data Warehouse Analitik Publikasi Riset UMN (2020–2025)">
+  <div class="thumb"><img src="dwh-quartile.jpg" alt="" loading="lazy"></div>
+  <div class="c-body"><span class="c-cat">Data</span><h3>Data Warehouse Analitik Publikasi Riset UMN (2020–2025)</h3><p>Menyatukan data Scopus dan data dosen UMN jadi dashboard Power BI.</p><div class="stack"><span>Power BI</span><span>Power Query</span><span>Star schema</span><span>ETL</span></div><span class="more">Lihat detail →</span></div>
+  <template>
+    <div class="p-top"><span class="p-meta">Data Warehouse · Proyek kelompok · 2025</span></div>
+    <h3>Data Warehouse Analitik Publikasi Riset UMN (2020–2025)</h3>
+    <p class="summary">Data publikasi Scopus dan data induk dosen UMN tersimpan terpisah dengan format yang tidak konsisten. Tim kami menyatukannya dalam data warehouse dan dashboard Power BI untuk memantau produktivitas riset per fakultas.</p>
+    <div class="p-grid">
+      <div class="p-block"><h4>Yang dibangun</h4><ul>
+        <li>Pipeline ETL di Power Query dari data mentah Scopus dan master dosen</li>
+        <li>Star schema dengan bridge table untuk relasi publikasi–dosen</li>
+        <li>Pemetaan CiteScore ke kuartil Q1–Q4 dan Row-Level Security per fakultas</li>
+      </ul></div>
+      <div class="p-block"><h4>Dashboard</h4><ul>
+        <li>Distribusi publikasi Q1–Q4 per fakultas dan tahun</li>
+        <li>Tren publikasi per program studi</li>
+        <li>Pola kolaborasi riset lintas fakultas</li>
+      </ul></div>
+    </div>
+    <div class="role"><b>Peran saya</b>Fokus di <strong>perbaikan dan persiapan data</strong>. Data yang diberikan banyak yang error dan tidak terbaca konsisten di perangkat yang berbeda, jadi saya membereskannya agar bisa diproses di Power BI. Saya juga ikut sedikit menyusun laporan.</div>
+    <div class="stack"><span>Power BI</span><span>Power Query</span><span>Star schema</span><span>ETL</span></div>
+    <div class="gallery">
+      <figure><img src="dwh-quartile.jpg" alt="Grafik total publikasi per tahun dan kuartil" loading="lazy"><figcaption>Publikasi per tahun &amp; kuartil</figcaption></figure>
+      <figure><img src="dwh-mscript.jpg" alt="Script Power Query untuk membersihkan data dosen" loading="lazy"><figcaption>Cleaning data dosen</figcaption></figure>
+      <figure><img src="dwh-schema.jpg" alt="Model star schema" loading="lazy"><figcaption>Star schema</figcaption></figure>
+    </div>
+  </template>
+</article>
+<article class="card" data-cat="data" tabindex="0" role="button" aria-label="Lihat detail Prediksi Harga Mobil dengan Machine Learning">
+  <div class="thumb"><img src="car-r2.jpg" alt="" loading="lazy"></div>
+  <div class="c-body"><span class="c-cat">Data</span><h3>Prediksi Harga Mobil dengan Machine Learning</h3><p>Membandingkan 3 model regresi; Random Forest terbaik dengan R² 0,93.</p><div class="stack"><span>Python</span><span>pandas</span><span>scikit-learn</span><span>CRISP-DM</span></div><span class="more">Lihat detail →</span></div>
+  <template>
+    <div class="p-top"><span class="p-meta">Data Analysis · Proyek kelompok · 2025</span></div>
+    <h3>Prediksi Harga Mobil dengan Machine Learning</h3>
+    <p class="summary">Memprediksi harga mobil dari dataset Kaggle berisi spesifikasi kendaraan dengan pendekatan CRISP-DM, dari pemahaman bisnis sampai evaluasi model.</p>
+    <div class="p-grid">
+      <div class="p-block"><h4>Proses</h4><ul>
+        <li>Data cleaning, penanganan missing value dan outlier</li>
+        <li>Binning, encoding, dan grouping fitur</li>
+        <li>Membandingkan Decision Tree, Random Forest, dan Gradient Boosting</li>
+      </ul></div>
+      <div class="p-block"><h4>Hasil</h4><ul>
+        <li>Random Forest terbaik dengan R² 0,93 dan error terendah di semua metrik</li>
+        <li>Decision Tree R² 0,89, Gradient Boosting R² 0,88</li>
+      </ul></div>
+    </div>
+    <div class="role"><b>Peran saya</b>Membantu tim di sebagian kode Python, penyusunan laporan, dan deployment model hasil prediksi.</div>
+    <div class="stack"><span>Python</span><span>pandas</span><span>scikit-learn</span><span>CRISP-DM</span></div>
+    <div class="gallery">
+      <figure><img src="car-r2.jpg" alt="Perbandingan R2 score antar model" loading="lazy"><figcaption>Perbandingan R² antar model</figcaption></figure>
+      <figure><img src="car-brands.jpg" alt="Top 10 merek mobil termahal" loading="lazy"><figcaption>Eksplorasi data</figcaption></figure>
+      <figure><img src="car-clean.jpg" alt="Kode data cleaning" loading="lazy"><figcaption>Data cleaning</figcaption></figure>
+    </div>
+  </template>
+</article>
+<article class="card" data-cat="data" tabindex="0" role="button" aria-label="Lihat detail Faktor Demografi &amp; Kondisi Gizi Global">
+  <div class="thumb"><img src="viz-map.jpg" alt="" loading="lazy"></div>
+  <div class="c-body"><span class="c-cat">Data</span><h3>Faktor Demografi &amp; Kondisi Gizi Global</h3><p>Dashboard Tableau soal stunting, overweight, dan faktor sosial ekonomi.</p><div class="stack"><span>Tableau</span><span>Excel</span><span>Dashboard &amp; Story</span></div><span class="more">Lihat detail →</span></div>
+  <template>
+    <div class="p-top"><span class="p-meta">Data Visualization · Proyek kelompok · 2026</span></div>
+    <h3>Faktor Demografi &amp; Kondisi Gizi Global</h3>
+    <p class="summary">Dashboard dan story Tableau tentang stunting dan overweight anak di berbagai negara, dibandingkan dengan GDP, kemiskinan, literasi perempuan, dan urbanisasi. Temuannya: negara miskin cenderung punya stunting lebih tinggi, sedangkan urbanisasi berkaitan dengan naiknya overweight.</p>
+    <div class="role"><b>Peran saya</b>Mengusulkan kandidat dataset di tahap awal, membantu membuat beberapa visualisasi di dashboard yang kemudian dilengkapi tim, dan ikut sedikit menyusun laporan.</div>
+    <div class="stack"><span>Tableau</span><span>Excel</span><span>Dashboard &amp; Story</span></div>
+    <div class="gallery">
+      <figure><img src="viz-dashboard.jpg" alt="Dashboard Tableau kondisi gizi global" loading="lazy"><figcaption>Dashboard utama</figcaption></figure>
+      <figure><img src="viz-map.jpg" alt="Peta malnutrisi global" loading="lazy"><figcaption>Peta malnutrisi</figcaption></figure>
+      <figure><img src="viz-scatter.jpg" alt="Scatter plot antar indikator" loading="lazy"><figcaption>Hubungan antar indikator</figcaption></figure>
+    </div>
+  </template>
+</article>
+<article class="card" data-cat="bisnis" tabindex="0" role="button" aria-label="Lihat detail E-Fuel: Layanan Antar Bahan Bakar">
+  <div class="thumb"><img src="ef-thumb.jpg" alt="" loading="lazy"></div>
+  <div class="c-body"><span class="c-cat">Bisnis & Desain</span><h3>E-Fuel: Layanan Antar Bahan Bakar</h3><p>Konsep bisnis digital pesan-antar BBM, lengkap dengan prototype.</p><div class="stack"><span>Business model</span><span>Figma</span><span>UI/UX</span><span>Digital marketing</span></div><span class="more">Lihat detail →</span></div>
+  <template>
+      <div class="p-top"><span class="p-meta">E-Business · Proyek kelompok · 2026</span></div>
+      <h3>E-Fuel: Layanan Antar Bahan Bakar</h3>
+      <p class="summary">Konsep bisnis digital untuk pesan-antar bahan bakar bagi pengendara yang kehabisan bensin. Mencakup model bisnis, revenue model dan membership, strategi pemasaran digital, keamanan sistem, serta prototype UI/UX di Figma: alur pilih lokasi, pilih jenis BBM dan jumlah liter, sampai pembayaran via e-wallet atau virtual account.</p>
+      <div class="role"><b>Peran saya</b>Ikut merancang konsep bisnis dan UI/UX prototype aplikasi, serta menyusun laporan. Website dikerjakan anggota tim lain.</div>
+      <div class="stack"><span>Business model</span><span>Figma</span><span>UI/UX</span><span>Digital marketing</span></div>
+    <a class="ext" href="https://www.figma.com/proto/NKRXZRBUy5OafPy1hLfSra/E-Fuel?node-id=47-1031&amp;starting-point-node-id=47%3A1031&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1" target="_blank" rel="noopener">▶ Coba prototype di Figma ↗</a>
+    <div class="gallery">
+      <figure><img src="ef-home.jpg" alt="Desain homepage E-Fuel di Figma" loading="lazy"><figcaption>Homepage</figcaption></figure>
+      <figure><img src="ef-order.jpg" alt="Desain halaman pilih bensin dan jumlah liter" loading="lazy"><figcaption>Pilih bensin &amp; liter</figcaption></figure>
+      <figure><img src="ef-pay.jpg" alt="Desain modal metode pembayaran" loading="lazy"><figcaption>Metode pembayaran</figcaption></figure>
+    </div>
+    </template>
+</article>
+<article class="card" data-cat="data" tabindex="0" role="button" aria-label="Lihat detail Deteksi Kepatuhan Pakaian di Area Kampus">
+  <div class="thumb"><div class="ph"><span>👕</span></div></div>
+  <div class="c-body"><span class="c-cat">Data</span><h3>Deteksi Kepatuhan Pakaian di Area Kampus</h3><p>Model klasifikasi gambar untuk aturan berpakaian di kampus.</p><div class="stack"><span>Python</span><span>TensorFlow / Keras</span><span>Image labeling</span></div><span class="more">Lihat detail →</span></div>
+  <template>
+      <div class="p-top"><span class="p-meta">Deep Learning · Proyek kelompok · 2026</span></div>
+      <h3>Deteksi Kepatuhan Pakaian di Area Kampus</h3>
+      <p class="summary">Mengumpulkan, melabeli, dan menyiapkan dataset gambar, lalu membangun model klasifikasi untuk membedakan pakaian yang sesuai dan tidak sesuai aturan kampus.</p>
+      <div class="stack"><span>Python</span><span>TensorFlow / Keras</span><span>Image labeling</span></div>
+    </template>
+</article>
+  </div>
+</div></section>
+
+<section id="matkul"><div class="wrap">
+  <div class="sec-head"><span class="num">03</span><h2>Mata kuliah</h2></div>
+  <div class="courses-meta"><span><b>38</b> mata kuliah</span><span><b>100</b> SKS (semester 1–5)</span><span>IPK <b>3,48</b></span><span>Semester 5 sedang berjalan</span></div>
+  <div class="cgrid">
+<div class="cgroup"><h3>Sistem informasi &amp; ERP</h3><span class="cnt">8 mata kuliah</span><ul><li>Management Information Systems<i class="">Sem 1</i></li><li>IS Analysis and Design<i class="">Sem 2</i></li><li>ERP Fundamental<i class="">Sem 1</i></li><li>Applied ERP<i class="">Sem 2</i></li><li>Seminars on Information Systems<i class="">Sem 2</i></li><li>Enterprise Architecture<i class="now">Sem 5 · berjalan</i></li><li>Supply Chain Management<i class="now">Sem 5 · berjalan</i></li><li>IS Research Methodologies<i class="now">Sem 5 · berjalan</i></li></ul></div>
+<div class="cgroup"><h3>Data &amp; analitik</h3><span class="cnt">9 mata kuliah</span><ul><li>Probability and Statistic<i class="">Sem 2</i></li><li>Database Systems<i class="">Sem 2</i></li><li>Data Analysis<i class="">Sem 3</i></li><li>Datawarehouse<i class="">Sem 3</i></li><li>Big Data Analytics<i class="">Sem 3</i></li><li>Data Modelling<i class="">Sem 4</i></li><li>Data Visualization<i class="">Sem 4</i></li><li>Advanced Big Data Analytics<i class="">Sem 4</i></li><li>Deep Learning<i class="now">Sem 5 · berjalan</i></li></ul></div>
+<div class="cgroup"><h3>Pemrograman &amp; pengembangan</h3><span class="cnt">7 mata kuliah</span><ul><li>Algorithms and Programming<i class="">Sem 1</i></li><li>Operating System Concept<i class="">Sem 1</i></li><li>Discrete Mathematics<i class="">Sem 1</i></li><li>Object-Oriented Programming<i class="">Sem 2</i></li><li>User Experience<i class="">Sem 3</i></li><li>Web Design and Development<i class="">Sem 3</i></li><li>Visual Programming<i class="">Sem 4</i></li></ul></div>
+<div class="cgroup"><h3>Manajemen, bisnis &amp; tata kelola</h3><span class="cnt">7 mata kuliah</span><ul><li>IS Project Management<i class="">Sem 4</i></li><li>E-Business<i class="">Sem 4</i></li><li>Technopreneurship<i class="">Sem 4</i></li><li>Governance, Risk, and Compliance<i class="">Sem 3</i></li><li>Security and Computer Network<i class="">Sem 3</i></li><li>Ethics in Information Technology<i class="">Sem 4</i></li><li>IT Service Management<i class="now">Sem 5 · berjalan</i></li></ul></div>
+<div class="cgroup"><h3>Umum &amp; bahasa</h3><span class="cnt">7 mata kuliah</span><ul><li>English 1<i class="">Sem 1</i></li><li>English 2<i class="">Sem 2</i></li><li>English 3<i class="now">Sem 5 · berjalan</i></li><li>Indonesian Language<i class="now">Sem 5 · berjalan</i></li><li>Religion<i class="">Sem 1</i></li><li>Pancasila<i class="">Sem 1</i></li><li>Civics<i class="">Sem 4</i></li></ul></div>
+  </div>
+</div></section>
+
+<section id="pengalaman"><div class="wrap">
+  <div class="sec-head"><span class="num">04</span><h2>Pengalaman</h2></div>
+  <div class="timeline">
+    <div>
+      <h3>Kerja</h3>
+      <div class="item"><h4>Crew Outlet (Part Time) · Bao Bao Shaved Ice</h4><div class="when">Jul 2026 – sekarang</div><p>Memproses transaksi kasir dan mengecek stok bahan harian agar operasional outlet tidak terhambat.</p></div>
+      <div class="item"><h4>Waiter (Part Time) · Hongkong Bay, Gading Serpong</h4><div class="when">Jun 2024 – Mar 2026</div><p>Mencatat pesanan dengan teliti dan membantu proses pembayaran di ritme kerja yang cepat.</p></div>
+      <div class="item"><h4>Waiter (Daily Worker) · Primocasa</h4><div class="when">Mar 2026</div><p>Melayani pelanggan dan menyajikan pesanan dengan akurat selama 5 hari kerja.</p></div>
+    </div>
+    <div>
+      <h3>Organisasi &amp; pendidikan</h3>
+      <div class="item"><h4>S1 Sistem Informasi · Universitas Multimedia Nusantara</h4><div class="when">Agu 2024 – sekarang</div><p>IPK 3,48 · IPS semester 4: 3,68. Sudah menempuh 38 mata kuliah (100 SKS) sampai semester 5.</p></div>
+      <div class="item"><h4>Panitia Divisi Perlengkapan · ISFEST 2025</h4><div class="when">2025</div><p>Mendata kebutuhan perlengkapan acara dan berkoordinasi dengan divisi lain agar terpenuhi tepat waktu.</p></div>
+      <div class="item"><h4>Panitia Penyelenggara Cabang Futsal · IMKOM Cup 2025</h4><div class="when">2025</div><p>Mengoordinasikan tim peserta dan jadwal pertandingan.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="contact" id="kontak"><div class="wrap">
+  <div class="eyebrow">Kontak</div>
+  <h2>Mari ngobrol.</h2>
+  <p>Saya terbuka untuk kesempatan magang di bidang analisis sistem, data, implementasi sistem, atau pengembangan web. Domisili Tangerang, Banten.</p>
+  <div class="links">
+    <div><small>Email</small><span id="mail">leon.junianwardeny@gmail.com</span><br><button class="copy" data-copy="leon.junianwardeny@gmail.com">Salin email</button></div>
+    <a href="https://www.linkedin.com/in/leon-juni-anwardeny-90190930a" target="_blank" rel="noopener"><small>LinkedIn</small><span>in/leon-juni-anwardeny →</span></a>
+  </div>
+</div></section>
+<footer><div class="wrap">© 2026 Leon Juni Anwardeny · Tangerang, Indonesia</div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="m-box"><button class="m-close" aria-label="Tutup">✕</button><div class="m-content"></div></div></div>
+<div class="lb" id="lb"><img alt=""><p></p></div>
+<script>
+const modal=document.getElementById('modal'),mc=modal.querySelector('.m-content');
+const lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('p');
+function openCard(c){
+  mc.innerHTML='';mc.appendChild(c.querySelector('template').content.cloneNode(true));
+  mc.querySelectorAll('.gallery figure').forEach(f=>f.addEventListener('click',e=>{e.stopPropagation();const i=f.querySelector('img');lbImg.src=i.src;lbImg.alt=i.alt;lbCap.textContent=f.querySelector('figcaption').textContent;lb.classList.add('open')}));
+  modal.classList.add('open');modal.scrollTop=0;document.body.style.overflow='hidden';
+}
+function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
+document.querySelectorAll('.card').forEach(c=>{c.addEventListener('click',()=>openCard(c));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openCard(c)}})});
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+modal.querySelector('.m-close').addEventListener('click',closeModal);
+lb.addEventListener('click',()=>lb.classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(lb.classList.contains('open'))lb.classList.remove('open');else closeModal()}});
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f;
+  document.querySelectorAll('.card').forEach(p=>p.classList.toggle('hide',f!=='all'&&!p.dataset.cat.split(' ').includes(f)));
+  const first=document.querySelector('.card:not(.hide)');
+  document.querySelectorAll('.card').forEach(p=>p.style.gridColumn='');
+  if(f!=='all')document.querySelectorAll('.card').forEach(p=>p.style.gridColumn='auto');
+}));
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent='Tersalin ✓'}catch(e){b.textContent='Salin manual di atas'}
+  setTimeout(()=>b.textContent='Salin email',2000);
+}));
+</script>
+</body>
+</html>
